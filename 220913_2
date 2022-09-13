@@ -1,0 +1,20 @@
+class Calc:
+    def set_number(self, x=0, y=0):
+        self.x = x
+        self.y = y
+
+    def plus(self):
+        return self.x + self.y
+    def minus(self):
+        return self.x - self.y
+    def multiple(self):
+        return self.x * self.y
+    def divide(self):
+        return self.x / self.y
+
+calc = Calc()
+calc.set_number(20, 10)
+print(f"더한 값 : {calc.plus():.1f}")
+print(f"뺀 값 : {calc.minus():.1f}")
+print(f"곱한 값 : {calc.multiple():.1f}")
+print(f"나눈 값 : {calc.divide():.1f}")
