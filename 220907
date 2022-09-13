@@ -1,0 +1,41 @@
+import random, sys, time, datetime
+
+start_time = time.time()
+now = datetime.datetime.now()
+
+rand = []
+you = ""    # 사용자 입력 값을 문자 형태로 받아줌
+a = int(input())
+if a > 10 or a < 1:
+    sys.exit("1 ~ 10 사이의 값을 입력해 주세요.")
+
+# 랜덤 값 a 개 뽑고 중복 제거 하기
+while len(rand) < a:
+    rand.append(random.randint(0, 9))    # 랜덤
+    rand = list(set(rand))  # 중복 제거
+    random.shuffle(rand)    # 무작위
+
+# 게임 규칙
+computer = "".join(map(str,rand))   # computer 는 rand 라는 리스트를 붙여서 문자 형태로 나타내주는 역할
+print(f"숫자 야구 게임\n규칙 : 0~9 사이에 겹치지 않는 숫자 {a}개 / 정답 : %s" %computer,"\n")
+
+# 사용자 입력 구간
+num = 0
+while you != computer:  # 정답이면 종료
+    num = num +1
+    you = input(f"{a}자리 입력 : ")
+    arr = 0; ball = 0; strike =0    # arr(랜덤한 값의 인덱스)
+    for i in you:
+        if i == computer[arr]:
+            strike = strike+1
+        elif you == "exit":
+            sys.exit("사용자의 요청으로 종료합니다.")
+        else:
+            for j in computer:
+                if i == j:
+                    ball = ball+1
+        arr = arr+1
+    print("%d Strike, %d Ball" %(strike, ball))
+print("\n----- 결과 -----\n입력 횟수 : %d 번" %num)
+print(f"소요 시간 : {time.time() - start_time:.0f} 초")
+print(f'날짜/시간 : {now.strftime("%y-%m-%d/%H:%M:%S")}')
