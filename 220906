@@ -1,0 +1,33 @@
+# [ calculator_basic.py ]
+
+from prac.calculator_basic_sub import cal
+
+num1, num2 = map(int, input().split())  # num1, num2 입력
+operator = input()  # operator 입력
+
+if operator == '+':
+    print(num1,"+",num2,"=", cal.plus(num1,num2))
+elif operator == '-':
+    print(num1,"-",num2,"=", cal.minus(num1,num2))
+elif operator == '*':
+    print(num1,"*",num2,"=", cal.multiple(num1,num2))
+elif operator == '/':
+    print(num1,"/",num2,"=", cal.divide(num1,num2))
+else:
+    print("다시 선택하세요.")
+  
+  
+  
+# prac 폴더 안에 위치
+# [ calculator_basic_sub.py ]
+
+class cal():
+
+    def plus(x, y):
+        return x + y
+    def minus(x, y):
+        return x - y
+    def multiple(x, y):
+        return x * y
+    def divide(x, y):
+        return x / y
