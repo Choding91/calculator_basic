@@ -6,10 +6,13 @@ class Calc:
 
     def plus(self):
         return self.x + self.y
+    
     def minus(self):
         return self.x - self.y
+    
     def multiple(self):
         return self.x * self.y
+    
     def divide(self):
         try:
             return self.x / self.y
@@ -22,7 +25,6 @@ while True:
         break
     except ValueError:
         print("숫자만 입력 가능합니다.")
-
 
 calc = Calc()
 calc.set_number(x, y)
