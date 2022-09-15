@@ -1,0 +1,14 @@
+cnt = 0
+
+while True:
+    try:
+        cnt += 1
+        num = input("숫자를 입력하세요 : ")
+        number = int(num) * 2
+        print(f'결과 : {number}')
+        if cnt == 5:
+            break
+    except:
+        if num == 'exit':
+            break
+        print(f"입력한 문자는 {num} 입니다.")
