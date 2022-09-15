@@ -11,18 +11,26 @@ class Calc:
     def multiple(self):
         return self.x * self.y
     def divide(self):
-        return self.x / self.y
+        try:
+            return self.x / self.y
+        except ZeroDivisionError:
+            print("나눈 값 : 0으로 나눌 수 없습니다.")
 
+while True:
+    try:
+        x, y = map(int, input().split())
+        break
+    except ValueError:
+        print("숫자만 입력 가능합니다.")
+
+
+calc = Calc()
+calc.set_number(x, y)
+
+print(f"더한 값 : {calc.plus():.1f}")
+print(f"뺀 값 : {calc.minus():.1f}")
+print(f"곱한 값 : {calc.multiple():.1f}")
 try:
-    calc = Calc()
-    calc.set_number(20, 10)
-
-    print(f"더한 값 : {calc.plus():.1f}")
-    print(f"뺀 값 : {calc.minus():.1f}")
-    print(f"곱한 값 : {calc.multiple():.1f}")
     print(f"나눈 값 : {calc.divide():.1f}")
-
-except ZeroDivisionError:
-    print("나눈 값 : 0으로 나눌 수 없습니다.")
-except NameError:
-    print("숫자만 입력 가능합니다.")
+except TypeError:
+    pass
