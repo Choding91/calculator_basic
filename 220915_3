@@ -19,9 +19,20 @@ users = [
 ]
 
 def get_filter_user(users):
-    filter_users = [x for x in users if ((x['math_score'] + x['science_score'] + x['english_score'] + x['social_score']) / 4) > 70]
+    # 함수에서 보여주는 방법
+    filter_users = [{'name':x['name'],'age':x['age']} for x in users if
+                    ((x['math_score'] + x['science_score'] + x['english_score'] + x['social_score']) / 4) > 70]
+
+    # 출력에서 보여주는 방법
+    # filter_users = [x for x in users if
+    #                 ((x['math_score'] + x['science_score'] + x['english_score'] + x['social_score']) / 4) > 70]
+
     return filter_users
 
 filter_users = get_filter_user(users)
-pprint([{'name': _['name'], 'age': _['age']} for _ in filter_users], sort_dicts=True)
-# pprint(filter_users)
+
+# 함수에서 보여주는 방법
+pprint(filter_users, sort_dicts=True)
+
+# 출력에서 보여주는 방법
+# pprint([{'name':_['name'],'age':_['age']} for _ in filter_users], sort_dicts=True)
